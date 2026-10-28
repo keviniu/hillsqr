@@ -179,3 +179,12 @@ form textarea { min-height: 140px; resize: vertical; }
 .quote blockquote { margin: 0 0 14px; color: var(--ink); font-size: 1.05rem; }
 .quote figcaption { color: var(--muted); font-size: .95rem; }
 .quote figcaption strong { color: var(--navy); }
+
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text small { font-size: .72rem; font-weight: 500; color: var(--muted); letter-spacing: .02em; margin-top: 2px; }
+.form-status { margin: 14px 0 0; font-weight: 500; }
+.form-status.ok { color: #0d7f4a; }
+.form-status.err { color: #b3261e; }
+.btn:disabled { opacity: .6; cursor: default; }
+form { position: relative; }
+.nav-links a.cta[aria-current="page"] { color: #fff; }
