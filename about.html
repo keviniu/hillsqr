@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Hillsqr</title>
+  <meta name="description" content="About Hillsqr: independent IT consulting and support built on 20+ years in enterprise IT.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img class="mark-img" src="logo-icon.svg" alt="" width="36" height="36"> Hillsqr</a>
+    <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" onclick="var l=document.getElementById('nav');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">Menu</button>
+    <ul class="nav-links" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a class="cta" href="contact.html">Get in touch</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <div class="container">
+      <h1>About Hillsqr</h1>
+      <p>An independent IT consultancy built on one idea: technology should serve the business, not the other way round.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2>Company overview</h2>
+          <p>Hillsqr provides IT support and consulting to businesses that need dependable technology and a partner who understands how their people actually work.</p>
+          <p>We combine hands-on, user-facing support with senior-level technical expertise. That means the person fixing your desktop problem also understands the architecture, integration and delivery issues behind it.</p>
+          <p>The name Hillsqr (&ldquo;Hill Square&rdquo;) comes from the Chinese character for hill, 山, doubled: two hills standing together, a picture of steady, dependable support. It also reflects our approach of being a genuine <em>IT value partner</em> to the business teams we serve.</p>
+        </div>
+        <div>
+          <h2>Our principles</h2>
+          <ul>
+            <li><strong>Business first.</strong> Technology choices follow business outcomes.</li>
+            <li><strong>Clear communication.</strong> Plain English, honest estimates, no surprises.</li>
+            <li><strong>Reliability.</strong> We treat your downtime as seriously as you do.</li>
+            <li><strong>Continuous improvement.</strong> Fix the problem, then fix the cause.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="testimonials" hidden>
+    <div class="container">
+      <h2>What our clients say</h2>
+      <div class="grid grid-3" id="testimonial-list" style="margin-top:20px"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Hillsqr</h4>
+        <p>IT consulting and support for businesses that can't afford downtime.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@hillsqr.com">info@hillsqr.com</a></li>
+          <li><a href="tel:+447719377948">+44 7719 377948</a></li>
+          <li>London, UK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> Hillsqr. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+(function () {
+  var section = document.getElementById('testimonials');
+  var list = document.getElementById('testimonial-list');
+  fetch('testimonials.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (data) {
+      var items = (data && data.testimonials || []).filter(function (x) {
+        return x && x.comment && x.comment.trim() && x.name && x.name.trim();
+      });
+      if (!items.length) return;
+      items.forEach(function (x) {
+        var card = document.createElement('figure');
+        card.className = 'card quote';
+        var q = document.createElement('blockquote');
+        q.textContent = '\u201C' + x.comment.trim() + '\u201D';
+        var cap = document.createElement('figcaption');
+        var who = document.createElement('strong');
+        who.textContent = x.name.trim();
+        cap.appendChild(who);
+        var extra = [x.role, x.company].filter(function (s) { return s && s.trim(); }).join(', ');
+        if (extra) cap.appendChild(document.createTextNode(' \u2013 ' + extra));
+        card.appendChild(q);
+        card.appendChild(cap);
+        list.appendChild(card);
+      });
+      section.hidden = false;
+    })
+    .catch(function () { /* no file or invalid JSON: keep section hidden */ });
+})();
+</script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

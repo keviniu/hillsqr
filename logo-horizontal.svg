@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" role="img" aria-label="Hillsqr IT consulting and support">
+
+  <rect width="120" height="120" rx="24" fill="#14305a"/>
+  <!-- left hill (behind) -->
+  <path d="M12 92 C20 62 32 40 46 40 C60 40 70 64 76 92 Z" fill="#12a3a0"/>
+  <!-- right hill (front) -->
+  <path d="M42 92 C50 62 62 40 76 40 C90 40 100 64 108 92 Z" fill="#ffffff" stroke="#14305a" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="12" y="92" width="96" height="5" rx="2.5" fill="#7fe0dd"/>
+
+
+  <text x="140" y="66" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#14305a" letter-spacing="-1">hill<tspan fill="#12a3a0">sqr</tspan></text>
+  <text x="142" y="94" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#5b6776" letter-spacing="2.2">IT CONSULTING &amp; SUPPORT</text>
+</svg>
