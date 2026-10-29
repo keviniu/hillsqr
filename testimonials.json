@@ -1,4 +1,5 @@
 {
   "testimonials": [
+    { "name": "Jane Smith", "role": "Operations Manager", "company": "Example Ltd", "comment": "Fast, calm and clear." }
   ]
 }
