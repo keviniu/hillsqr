@@ -1,0 +1,12 @@
+# Hillsqr
+
+> Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. Tagline: Your IT value partner.
+
+Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365), IT consulting and solution architecture, web hosting and SEO improvement, software development and modernisation, Agile and DevOps coaching. On-site or remote.
+
+## Pages
+- [Home](https://hillsqr.com/): overview and areas covered
+- [Services](https://hillsqr.com/services.html): what Hillsqr offers
+- [About](https://hillsqr.com/about.html): company overview and principles
+- [Contact](https://hillsqr.com/contact.html): enquiry form and email (info@hillsqr.com)
+- [Privacy & cookies](https://hillsqr.com/privacy.html)
