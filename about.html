@@ -95,13 +95,6 @@
       </div>
     </div>
   </section>
-
-  <section class="soft" id="testimonials" hidden>
-    <div class="container">
-      <h2>What our clients say</h2>
-      <div class="grid grid-3" id="testimonial-list" style="margin-top:20px"></div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
@@ -118,6 +111,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="case-study-roofing.html">Case study</a></li>
           <li><a href="privacy.html">Privacy &amp; cookies</a></li>
         </ul>
       </div>
@@ -132,37 +126,6 @@
     <div class="copy">&copy; <span id="yr">2026</span> Hillsqr. All rights reserved.</div>
   </div>
 </footer>
-<script>
-(function () {
-  var section = document.getElementById('testimonials');
-  var list = document.getElementById('testimonial-list');
-  fetch('testimonials.json', { cache: 'no-cache' })
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function (data) {
-      var items = (data && data.testimonials || []).filter(function (x) {
-        return x && x.comment && x.comment.trim() && x.name && x.name.trim();
-      });
-      if (!items.length) return;
-      items.forEach(function (x) {
-        var card = document.createElement('figure');
-        card.className = 'card quote';
-        var q = document.createElement('blockquote');
-        q.textContent = '\u201C' + x.comment.trim() + '\u201D';
-        var cap = document.createElement('figcaption');
-        var who = document.createElement('strong');
-        who.textContent = x.name.trim();
-        cap.appendChild(who);
-        var extra = [x.role, x.company].filter(function (s) { return s && s.trim(); }).join(', ');
-        if (extra) cap.appendChild(document.createTextNode(' \u2013 ' + extra));
-        card.appendChild(q);
-        card.appendChild(cap);
-        list.appendChild(card);
-      });
-      section.hidden = false;
-    })
-    .catch(function () { /* no file or invalid JSON: keep section hidden */ });
-})();
-</script>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -182,6 +182,30 @@
     </div>
   </section>
 
+  <section class="soft testimonials" id="testimonials" hidden>
+    <div class="container">
+      <h2>What our clients say</h2>
+      <div class="slider" id="testimonial-slider">
+        <button class="arrow prev" type="button" aria-label="Previous testimonial">&#8249;</button>
+        <div class="slides" id="testimonial-list" aria-live="polite"></div>
+        <button class="arrow next" type="button" aria-label="Next testimonial">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" id="showcase" hidden>
+    <div class="container">
+      <h2>Show case</h2>
+      <p class="lead">Real work for real businesses, with honest results.</p>
+      <div class="slider" id="case-slider">
+        <button class="arrow prev" type="button" aria-label="Previous case">&#8249;</button>
+        <div class="slides" id="case-list" aria-live="polite"></div>
+        <button class="arrow next" type="button" aria-label="Next case">&#8250;</button>
+      </div>
+      <p class="stay-tuned">To be continued&hellip; more case studies and results coming soon. Stay tuned!</p>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <h2>What we do</h2>
@@ -252,6 +276,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="case-study-roofing.html">Case study</a></li>
           <li><a href="privacy.html">Privacy &amp; cookies</a></li>
         </ul>
       </div>
@@ -266,6 +291,54 @@
     <div class="copy">&copy; <span id="yr">2026</span> Hillsqr. All rights reserved.</div>
   </div>
 </footer>
+<script src="site-data.js"></script>
+<script>
+(function () {
+  var D = window.HILLSQR_DATA || {};
+  function slider(sectionId, sliderId, listId, items, build) {
+    var section = document.getElementById(sectionId);
+    var root = document.getElementById(sliderId);
+    var list = document.getElementById(listId);
+    if (!section || !items.length) return;
+    var cards = items.map(function (x) { var c = build(x); c.hidden = true; list.appendChild(c); return c; });
+    var i = 0;
+    function show(n) {
+      i = (n + cards.length) % cards.length;
+      cards.forEach(function (c, k) { c.hidden = k !== i; });
+    }
+    var btns = root.querySelectorAll('.arrow');
+    if (cards.length < 2) { btns.forEach(function (b) { b.style.display = 'none'; }); }
+    else {
+      root.querySelector('.prev').addEventListener('click', function () { show(i - 1); });
+      root.querySelector('.next').addEventListener('click', function () { show(i + 1); });
+    }
+    show(0);
+    section.hidden = false;
+  }
+  function ok(s) { return s && String(s).trim(); }
+  slider('testimonials', 'testimonial-slider', 'testimonial-list',
+    (D.testimonials || []).filter(function (x) { return x && ok(x.comment) && ok(x.name); }),
+    function (x) {
+      var f = document.createElement('figure'); f.className = 'card quote';
+      var q = document.createElement('blockquote'); q.textContent = x.comment.trim();
+      var cap = document.createElement('figcaption');
+      var s = document.createElement('strong'); s.textContent = x.name.trim(); cap.appendChild(s);
+      var extra = [x.role, x.company].filter(ok).join(', ');
+      if (extra) cap.appendChild(document.createTextNode(' \u2013 ' + extra));
+      f.appendChild(q); f.appendChild(cap); return f;
+    });
+  slider('showcase', 'case-slider', 'case-list',
+    (D.cases || []).filter(function (x) { return x && ok(x.title) && ok(x.url); }),
+    function (x) {
+      var c = document.createElement('article'); c.className = 'card case';
+      if (ok(x.tag)) { var g = document.createElement('div'); g.className = 'tag'; g.textContent = x.tag; c.appendChild(g); }
+      var h = document.createElement('h3'); h.textContent = x.title; c.appendChild(h);
+      var p = document.createElement('p'); p.textContent = x.summary || ''; c.appendChild(p);
+      var a = document.createElement('a'); a.href = x.url; a.className = 'btn btn-outline'; a.textContent = 'Read the full case study'; a.style.marginTop = '16px'; c.appendChild(a);
+      return c;
+    });
+})();
+</script>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
