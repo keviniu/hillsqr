@@ -1,9 +1,9 @@
 # Hillsqr
 
-> Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. Tagline: Your IT value partner. Founded by Chi Man (Kevin) Iu, who has 20+ years of experience in enterprise IT.
+> Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. Tagline: Your IT value partner. Founded by Kevin Iu.
 
 ## Key facts
-- Business: Hillsqr (website hillsqr.com), sole-founder IT support and consulting business based in Berkshire, UK
+- Business: Hillsqr (website hillsqr.com), IT support and consulting business based in Berkshire, UK
 - Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365, user accounts), IT consulting and solution architecture, web hosting and SEO improvement, 24/7 missed call assistant, Facebook-to-Google Business Profile updates, AI-ready website optimisation, software development and modernisation, Agile and DevOps coaching
 - Delivery: on site or remote, on contract or on call
 - Coverage: small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the Thames Valley
