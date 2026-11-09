@@ -243,3 +243,9 @@ table.results tr:last-child td { border-bottom: none; }
 #testimonials .card.quote::after { content: "\201D"; position: absolute; right: 18px; bottom: -28px; font-size: 4.5rem; line-height: 1; color: var(--teal); font-family: Georgia, serif; }
 #testimonials .card.quote { padding-right: 62px; }
 @media (max-width: 600px) { #testimonials .card.quote::after { position: static; display: block; text-align: right; height: 30px; margin-top: -4px; } #testimonials .card.quote { padding-right: 18px; } }
+
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; padding: 0 20px; }
+.faq-item summary { cursor: pointer; font-weight: 600; color: var(--navy); padding: 16px 0; list-style-position: outside; }
+.faq-item summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.faq-item[open] summary { color: var(--teal-dark); }
+.faq-item p { margin: 0 0 16px; color: var(--muted); }

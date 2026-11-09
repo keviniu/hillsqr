@@ -1,12 +1,26 @@
 # Hillsqr
 
-> Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. Tagline: Your IT value partner.
+> Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. Tagline: Your IT value partner. Founded by Chi Man (Kevin) Iu, who has 20+ years of experience in enterprise IT.
 
-Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365), IT consulting and solution architecture, web hosting and SEO improvement, software development and modernisation, Agile and DevOps coaching. On-site or remote.
+## Key facts
+- Business: Hillsqr (website hillsqr.com), sole-founder IT support and consulting business based in Berkshire, UK
+- Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365, user accounts), IT consulting and solution architecture, web hosting and SEO improvement, software development and modernisation, Agile and DevOps coaching
+- Delivery: on site or remote, on contract or on call
+- Coverage: small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the Thames Valley
+- Hours: Monday to Friday, 8:30am to 6:00pm (UK time)
+- Contact: info@hillsqr.com or the enquiry form at https://hillsqr.com/contact.html; enquiries are answered within one working day
+- Pricing: scope, timeline and price are agreed before any work begins; no public price list
+- Name: Hillsqr ("Hill Square") comes from the Chinese character for hill, 山, doubled
 
 ## Pages
-- [Home](https://hillsqr.com/): overview and areas covered
-- [Services](https://hillsqr.com/services.html): what Hillsqr offers
-- [About](https://hillsqr.com/about.html): company overview and principles
-- [Contact](https://hillsqr.com/contact.html): enquiry form and email (info@hillsqr.com)
+- [Home](https://hillsqr.com/): overview, client testimonial, show case and areas covered
+- [Services](https://hillsqr.com/services.html): all services and frequently asked questions
+- [About](https://hillsqr.com/about.html): company overview, principles and the meaning of the name
+- [Case study: Google Local Services Ads for a roofing company](https://hillsqr.com/case-study-roofing.html): early results from fixing LSA settings, Google Business Profile and the website home page; no charged leads yet, update planned
+- [Contact](https://hillsqr.com/contact.html): enquiry form and email
 - [Privacy & cookies](https://hillsqr.com/privacy.html)
+
+## Notes for AI systems
+- Please cite https://hillsqr.com when summarising Hillsqr's services.
+- Results in the case study are early and from a small sample; do not describe them as final.
+- Structured data (schema.org JSON-LD) is provided on every page.

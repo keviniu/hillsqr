@@ -11,7 +11,13 @@
   <meta property="og:site_name" content="Hillsqr">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hillsqr.com/">
-  <meta property="og:image" content="https://hillsqr.com/logo-icon.svg">
+  <meta property="og:image" content="https://hillsqr.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hillsqr - Your IT value partner">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://hillsqr.com/og-image.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,13 +29,32 @@
       ],
       "@id": "https://hillsqr.com/#business",
       "name": "Hillsqr",
-      "alternateName": "Hillsqr - Your IT value partner",
+      "legalName": "Hillsqr",
+      "alternateName": [
+        "Hillsqr - Your IT value partner",
+        "Hill Square IT"
+      ],
       "slogan": "Your IT value partner",
-      "description": "Independent IT consulting and support for small businesses: office IT support, network and printer support, IT consulting and architecture, software development and Agile/DevOps coaching.",
+      "description": "Hillsqr is an independent IT support and consulting business for small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the wider Thames Valley, Berkshire, UK. It offers office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365), IT consulting and solution architecture, web hosting and SEO improvement, software development and Agile/DevOps coaching, on site or remote.",
       "url": "https://hillsqr.com/",
-      "logo": "https://hillsqr.com/logo-icon.svg",
-      "image": "https://hillsqr.com/logo-icon.svg",
+      "inLanguage": "en-GB",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://hillsqr.com/#logo",
+        "url": "https://hillsqr.com/logo-icon.png",
+        "contentUrl": "https://hillsqr.com/logo-icon.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Hillsqr logo"
+      },
+      "image": [
+        "https://hillsqr.com/logo-icon.png",
+        "https://hillsqr.com/og-image.png"
+      ],
       "email": "info@hillsqr.com",
+      "founder": {
+        "@id": "https://hillsqr.com/#founder"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressRegion": "Berkshire",
@@ -38,19 +63,43 @@
       "areaServed": [
         {
           "@type": "City",
-          "name": "Reading"
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
         },
         {
           "@type": "City",
-          "name": "Wokingham"
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
         },
         {
           "@type": "City",
-          "name": "Henley-on-Thames"
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
         },
         {
           "@type": "City",
-          "name": "Bracknell"
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
         },
         {
           "@type": "AdministrativeArea",
@@ -60,6 +109,31 @@
           "@type": "AdministrativeArea",
           "name": "Thames Valley"
         }
+      ],
+      "serviceArea": {
+        "@type": "AdministrativeArea",
+        "name": "Berkshire and the Thames Valley, UK"
+      },
+      "knowsAbout": [
+        "Managed IT support",
+        "Office IT support",
+        "Network and Wi-Fi support",
+        "Printer support",
+        "Microsoft 365",
+        "IT consulting",
+        "Solution architecture",
+        "Azure cloud architecture",
+        "Web hosting",
+        "SEO improvement",
+        "Google Business Profile",
+        "Google Local Services Ads",
+        "Software development",
+        "Database design and tuning",
+        "Agile and DevOps coaching"
+      ],
+      "knowsLanguage": [
+        "en",
+        "zh"
       ],
       "openingHoursSpecification": [
         {
@@ -75,24 +149,61 @@
           "closes": "18:00"
         }
       ],
-      "knowsAbout": [
-        "Managed IT support",
-        "SEO improvement",
-        "Architecture",
-        "Web Hosting",
-        "Software",
-        "IT consultancy"
-      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
         "email": "info@hillsqr.com",
+        "url": "https://hillsqr.com/contact.html",
         "areaServed": "GB",
         "availableLanguage": [
           "English",
           "Chinese"
-        ]
+        ],
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
       },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://hillsqr.com/services.html#office-support"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://hillsqr.com/services.html#web-seo"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://hillsqr.com/services.html#consulting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://hillsqr.com/services.html#software"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://hillsqr.com/services.html#agile"
+          }
+        }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "IT consulting and support services",
@@ -100,55 +211,400 @@
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
-              "name": "Office IT support",
-              "description": "Desktop, laptop, application, network, Wi-Fi, printer, Microsoft 365 and user-account support, on site or remote."
+              "@id": "https://hillsqr.com/services.html#office-support"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
-              "name": "Web hosting and SEO improvement",
-              "description": "Website hosting support, SEO improvement and Google Business Profile set-up for local visibility."
+              "@id": "https://hillsqr.com/services.html#web-seo"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
-              "name": "IT consulting and solution architecture",
-              "description": "Technology reviews, Azure cloud architecture, integration and resilience reviews."
+              "@id": "https://hillsqr.com/services.html#consulting"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
-              "name": "Software development and modernisation",
-              "description": "Application development, database design review and tuning, and legacy modernisation."
+              "@id": "https://hillsqr.com/services.html#software"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Service",
-              "name": "Agile delivery and DevOps coaching",
-              "description": "Agile adoption, CI/CD pipelines and engineering practice coaching."
+              "@id": "https://hillsqr.com/services.html#agile"
             }
           }
         ]
       }
     },
     {
+      "@type": "Person",
+      "@id": "https://hillsqr.com/#founder",
+      "name": "Chi Man (Kevin) Iu",
+      "alternateName": "Kevin Iu",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "award": "IT Value Partner Award (2007)",
+      "knowsAbout": [
+        "IT support",
+        "Solution architecture",
+        "Software development",
+        "Agile delivery"
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://hillsqr.com/#website",
       "url": "https://hillsqr.com/",
       "name": "Hillsqr",
+      "description": "IT support and consulting for small offices in Berkshire and the Thames Valley.",
       "publisher": {
         "@id": "https://hillsqr.com/#business"
       },
       "inLanguage": "en-GB"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hillsqr.com/services.html#office-support",
+      "name": "Office IT support",
+      "serviceType": "Support",
+      "description": "Desktop, laptop, application, network, Wi-Fi, printer, Microsoft 365 and user-account support for small offices, on site or remote, on contract or on call.",
+      "provider": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Berkshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Thames Valley"
+        }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://hillsqr.com/contact.html#enquiry"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hillsqr.com/services.html#web-seo",
+      "name": "Web hosting and SEO improvement",
+      "serviceType": "Web and search visibility",
+      "description": "Website hosting support, SEO improvement, Google Business Profile set-up and review of Google advertising for local visibility.",
+      "provider": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Berkshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Thames Valley"
+        }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://hillsqr.com/contact.html#enquiry"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hillsqr.com/services.html#consulting",
+      "name": "IT consulting and solution architecture",
+      "serviceType": "Consulting",
+      "description": "Technology reviews and roadmaps, Azure cloud architecture and migration planning, system integration and resilience reviews.",
+      "provider": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Berkshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Thames Valley"
+        }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://hillsqr.com/contact.html#enquiry"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hillsqr.com/services.html#software",
+      "name": "Software development and modernisation",
+      "serviceType": "Software development",
+      "description": "Application development, database design review and tuning, and modernisation of legacy applications.",
+      "provider": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Berkshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Thames Valley"
+        }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://hillsqr.com/contact.html#enquiry"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hillsqr.com/services.html#agile",
+      "name": "Agile delivery and DevOps coaching",
+      "serviceType": "Coaching",
+      "description": "Moving teams to Agile, CI/CD pipeline setup and improvement, and engineering practice coaching.",
+      "provider": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Reading",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Wokingham",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Bracknell",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Henley-on-Thames",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Crowthorne",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Berkshire"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Berkshire"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Thames Valley"
+        }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://hillsqr.com/contact.html#enquiry"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://hillsqr.com/#page",
+      "url": "https://hillsqr.com/",
+      "name": "Hillsqr | IT Support & Consulting, Berkshire",
+      "isPartOf": {
+        "@id": "https://hillsqr.com/#website"
+      },
+      "about": {
+        "@id": "https://hillsqr.com/#business"
+      },
+      "inLanguage": "en-GB",
+      "dateModified": "2026-11-05",
+      "primaryImageOfPage": {
+        "@id": "https://hillsqr.com/#logo"
+      }
     }
   ]
 }
@@ -160,10 +616,10 @@
 
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="index.html"><img class="mark-img" src="logo-icon.svg" alt="" width="36" height="36"> <span class="brand-text">Hillsqr<small>Your IT value partner</small></span></a>
+    <a class="brand" href="/"><img class="mark-img" src="logo-icon.svg" alt="" width="36" height="36"> <span class="brand-text">Hillsqr<small>Your IT value partner</small></span></a>
     <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" onclick="var l=document.getElementById('nav');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">Menu</button>
     <ul class="nav-links" id="nav">
-      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="/" aria-current="page">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a class="cta" href="contact.html">Get in touch</a></li>
@@ -272,7 +728,7 @@
       <div>
         <h4>Pages</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
