@@ -249,3 +249,19 @@ table.results tr:last-child td { border-bottom: none; }
 .faq-item summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 .faq-item[open] summary { color: var(--teal-dark); }
 .faq-item p { margin: 0 0 16px; color: var(--muted); }
+
+/* Home highlights */
+#highlights { background: #fff; }
+.hl-grid { align-items: stretch; }
+.card.hl { display: flex; flex-direction: column; border-top: 5px solid var(--teal); }
+.card.hl:hover { transform: none; }
+.hl-icon { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), #1c5a7a); color: #fff; display: grid; place-items: center; }
+.hl-tag { color: var(--teal-dark); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; margin-top: 16px; }
+.card.hl h3 { margin: 6px 0 8px; font-size: 1.3rem; }
+.card.hl p { flex: 1; }
+.hl-link { display: inline-block; margin-top: 16px; font-weight: 600; text-decoration: none; padding: 8px 0; }
+.hl-link:hover { text-decoration: underline; }
+.hl-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 30px 0 18px; color: var(--navy); font-weight: 600; }
+.hl-strip span::before { content: "\2022"; color: var(--teal); margin-right: 10px; }
+.hl-cta { text-align: center; margin: 0; }
+@media (max-width: 600px) { .hl-link { padding: 12px 0; } .hl-cta .btn { display: block; } }

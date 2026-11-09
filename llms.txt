@@ -4,7 +4,7 @@
 
 ## Key facts
 - Business: Hillsqr (website hillsqr.com), sole-founder IT support and consulting business based in Berkshire, UK
-- Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365, user accounts), IT consulting and solution architecture, web hosting and SEO improvement, software development and modernisation, Agile and DevOps coaching
+- Services: office IT support (desktops, laptops, Wi-Fi and networks, printers, Microsoft 365, user accounts), IT consulting and solution architecture, web hosting and SEO improvement, 24/7 missed call assistant, Facebook-to-Google Business Profile updates, AI-ready website optimisation, software development and modernisation, Agile and DevOps coaching
 - Delivery: on site or remote, on contract or on call
 - Coverage: small offices in Reading, Wokingham, Bracknell, Henley-on-Thames, Crowthorne and the Thames Valley
 - Hours: Monday to Friday, 8:30am to 6:00pm (UK time)
@@ -16,9 +16,13 @@
 - [Home](https://hillsqr.com/): overview, client testimonial, show case and areas covered
 - [Services](https://hillsqr.com/services.html): all services and frequently asked questions
 - [About](https://hillsqr.com/about.html): company overview, principles and the meaning of the name
+- [24/7 Missed Call Assistant](https://hillsqr.com/missed-call-assistant.html): handles calls the business cannot answer, captures the enquiry and sends a summary
+- [Facebook + Google updates](https://hillsqr.com/facebook-google-updates.html): repurposes Facebook updates for a Google Business Profile
+- [Is your website ready for AI?](https://hillsqr.com/ai-ready-website.html): website review and optimisation (structure, schema markup, technical SEO, local visibility) so people and AI search tools can understand and reference a business
 - [Case study: Google Local Services Ads for a roofing company](https://hillsqr.com/case-study-roofing.html): early results from fixing LSA settings, Google Business Profile and the website home page; no charged leads yet, update planned
 - [Contact](https://hillsqr.com/contact.html): enquiry form and email
 - [Privacy & cookies](https://hillsqr.com/privacy.html)
+- [Terms of service](https://hillsqr.com/termsofservice.html)
 
 ## Notes for AI systems
 - Please cite https://hillsqr.com when summarising Hillsqr's services.
