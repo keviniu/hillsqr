@@ -14,17 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RoofingContractor",
-  "name": "David's Property – General Handyman Service by David",
-  "telephone": ["+447453159073", "+447511719222"],
-  "address": { "@type": "PostalAddress", "addressLocality": "Arborfield", "addressRegion": "Berkshire", "addressCountry": "GB" },
-  "areaServed": ["Arborfield", "Wokingham", "Finchampstead", "Shinfield", "Crowthorne", "Reading", "Bracknell"],
-  "url": "https://hillsqr.com/client/handymandavid/"
-}
-</script>
 
 <style>
 :root{
@@ -106,7 +95,7 @@ nav.main a:hover{text-decoration:underline}
 
 /* Work */
 .work{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters,.head-row > .filters{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
 .filters button{min-height:44px;padding:10px 18px;border-radius:999px;font:600 14px var(--body);cursor:pointer;background:var(--white);color:var(--ink);border:1px solid var(--line-2)}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
 .jobs{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
@@ -139,6 +128,7 @@ nav.main a:hover{text-decoration:underline}
 .review strong{color:var(--white)}
 
 /* Areas */
+.areas .wrap{display:block}
 .areas .wrap{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
 .areas-copy{flex:1 1 100%;max-width:960px;min-width:0;display:flex;flex-direction:column;gap:16px}
 .areas-copy p{margin:0;font-size:17px;color:var(--muted)}
@@ -198,21 +188,25 @@ footer.site strong{color:var(--white)}
   .callbar a:last-child{background:var(--accent);color:var(--ink)}
   body{padding-bottom:56px}
 }
+.filters:empty,.grid:empty{display:none}
+[hidden]{display:none !important}
+.ph:has(img){border:0;padding:0}
 </style>
 </head>
 <body>
+<!-- Layout only. All content comes from site-data.js — edit that file, not this one. -->
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="strip">
   <div class="wrap">
-    <span>Roofing &amp; property maintenance · Arborfield and surrounding areas</span>
-    <span><a href="tel:07453159073">07453 159073</a><a href="tel:07511719222">07511 719222</a></span>
+    <span data-text="business.strapline"></span>
+    <span id="strip-phones"></span>
   </div>
 </div>
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="David's Property home">
+    <a class="brand" href="#top">
       <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
         <rect width="44" height="44" rx="6" fill="#1F2124"/>
         <path d="M8 22 L22 10 L36 22" fill="none" stroke="#8C9096" stroke-width="4" stroke-linejoin="round"/>
@@ -220,8 +214,8 @@ footer.site strong{color:var(--white)}
         <path d="M30 18 V34 H20" fill="none" stroke="#F5B800" stroke-width="4"/>
       </svg>
       <span>
-        <span class="brand-name">David's Property</span>
-        <span class="brand-sub">General Handyman Service by David</span>
+        <span class="brand-name" data-text="business.name"></span>
+        <span class="brand-sub" data-text="business.subName"></span>
       </span>
     </a>
     <nav class="main" aria-label="Main">
@@ -231,7 +225,7 @@ footer.site strong{color:var(--white)}
       <a href="#areas">Areas</a>
       <a href="#quote">Contact</a>
     </nav>
-    <a class="btn btn-dark" href="https://wa.me/85291816360">
+    <a class="btn btn-dark" data-wa href="#">
       <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
       WhatsApp David
     </a>
@@ -243,25 +237,16 @@ footer.site strong{color:var(--white)}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="badge">Free no-obligation quotes</span>
-      <h1>Roofing &amp; property maintenance you can rely on</h1>
-      <p>Hi, I'm David — your local handyman and roofer in Arborfield. From roof repairs and fencing to TV walls and odd jobs, I'll give you an honest price and leave the place tidy.</p>
+      <span class="badge" data-text="hero.badge"></span>
+      <h1 data-text="hero.heading"></h1>
+      <p data-text="hero.intro"></p>
       <div class="ctas">
         <a class="btn btn-accent" href="#quote">Get a free quote</a>
-        <a class="btn btn-outline" href="tel:07453159073">Call 07453 159073</a>
+        <a class="btn btn-outline" id="hero-call" href="#"></a>
       </div>
-      <div class="stats">
-        <div class="stat"><b>100%</b><span>recommend · 102 Facebook reviews</span></div>
-        <div class="stat"><b>2.5K</b><span>local followers</span></div>
-        <div class="stat"><b>[YEARS]</b><span>years' experience</span></div>
-      </div>
+      <div class="stats" id="stats"></div>
     </div>
-    <div class="hero-media">
-      <!-- Replace each .ph with: <div class="ph big"><img src="images/hero.jpg" alt="David repairing a roof in Arborfield"></div> -->
-      <div class="ph ph-dark big">Photo: David on a roof job (hero shot)</div>
-      <div class="ph ph-dark">Photo: slatted TV wall</div>
-      <div class="ph ph-dark">Photo: new fence panels</div>
-    </div>
+    <div class="hero-media" id="hero-photos"></div>
   </div>
 </section>
 
@@ -269,43 +254,12 @@ footer.site strong{color:var(--white)}
   <div class="wrap">
     <div class="head-row">
       <div>
-        <span class="eyebrow">What I do</span>
-        <h2>One trusted pair of hands for the whole house</h2>
+        <span class="eyebrow" data-text="services.eyebrow"></span>
+        <h2 data-text="services.heading"></h2>
       </div>
       <a href="#quote" style="font-weight:600">Not listed? Just ask →</a>
     </div>
-    <div class="grid">
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span>
-        <h3>Roofing repairs</h3>
-        <p>Slipped and broken tiles, leaks, flat roofs, flashing and ridge work — fixed properly, not patched.</p>
-      </article>
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V7l2-3 2 3v14M16 21V7l2-3 2 3v14M4 11h16M4 17h16"/></svg></span>
-        <h3>Fencing &amp; gates</h3>
-        <p>Storm-damaged panels, new posts, full fence runs and gates, set solid and finished neatly.</p>
-      </article>
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg></span>
-        <h3>TV walls &amp; mounting</h3>
-        <p>Wall-mounted TVs with cables hidden, plus slatted acoustic-panel feature walls.</p>
-      </article>
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
-        <h3>General handyman</h3>
-        <p>The to-do list: shelves, doors, flat-pack, small repairs and the jobs that keep getting put off.</p>
-      </article>
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-        <h3>Property maintenance</h3>
-        <p>Ongoing upkeep for homeowners and landlords — one number to call when something needs sorting.</p>
-      </article>
-      <article class="card">
-        <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-8h6v8"/></svg></span>
-        <h3>Exterior timber work</h3>
-        <p>Cladding, frames, decking and outdoor structures built to last the British weather.</p>
-      </article>
-    </div>
+    <div class="grid" id="services-list"></div>
   </div>
 </section>
 
@@ -313,57 +267,19 @@ footer.site strong{color:var(--white)}
   <div class="wrap">
     <div class="head-row">
       <div>
-        <span class="eyebrow">Recent jobs</span>
-        <h2>Before → After</h2>
+        <span class="eyebrow" data-text="jobs.eyebrow"></span>
+        <h2 data-text="jobs.heading"></h2>
       </div>
-      <div class="filters" role="group" aria-label="Filter jobs">
-        <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="roofing" aria-pressed="false">Roofing</button>
-        <button type="button" data-filter="fencing" aria-pressed="false">Fencing</button>
-        <button type="button" data-filter="interiors" aria-pressed="false">Interiors</button>
-      </div>
+      <div class="filters" id="job-filters" role="group" aria-label="Filter jobs"></div>
     </div>
-    <div class="jobs">
-      <figure class="job" data-cat="interiors">
-        <div class="ba">
-          <div class="ph ph-light"><span class="tag">Before</span>Photo</div>
-          <div class="ph ph-light"><span class="tag after">After</span>Photo</div>
-        </div>
-        <figcaption><strong>Slatted TV feature wall</strong><span>[Town]</span></figcaption>
-      </figure>
-      <figure class="job" data-cat="roofing">
-        <div class="ba">
-          <div class="ph ph-light"><span class="tag">Before</span>Photo</div>
-          <div class="ph ph-light"><span class="tag after">After</span>Photo</div>
-        </div>
-        <figcaption><strong>Roof repair &amp; re-felt</strong><span>[Town]</span></figcaption>
-      </figure>
-      <figure class="job" data-cat="fencing">
-        <div class="ba">
-          <div class="ph ph-light"><span class="tag">Before</span>Photo</div>
-          <div class="ph ph-light"><span class="tag after">After</span>Photo</div>
-        </div>
-        <figcaption><strong>Garden fence replacement</strong><span>[Town]</span></figcaption>
-      </figure>
-      <figure class="job" data-cat="roofing">
-        <div class="ba">
-          <div class="ph ph-light"><span class="tag">Before</span>Photo</div>
-          <div class="ph ph-light"><span class="tag after">After</span>Photo</div>
-        </div>
-        <figcaption><strong>Timber frame &amp; cladding</strong><span>[Town]</span></figcaption>
-      </figure>
-    </div>
+    <div class="jobs" id="job-list"></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="how">
   <div class="wrap">
     <h2 style="margin-bottom:40px">How it works</h2>
-    <ol class="steps">
-      <li><span class="num">01</span><h3>Call, WhatsApp or send photos</h3><p>Tell me what needs doing. A couple of photos helps me give you a rough idea straight away.</p></li>
-      <li><span class="num">02</span><h3>Free, no-obligation quote</h3><p>I'll come and look, then give you a clear fixed price — no surprises later.</p></li>
-      <li><span class="num">03</span><h3>Job done, site left tidy</h3><p>Work finished to the agreed time, everything cleared away, and you check it before paying.</p></li>
-    </ol>
+    <ol class="steps" id="steps"></ol>
   </div>
 </section>
 
@@ -371,28 +287,12 @@ footer.site strong{color:var(--white)}
   <div class="wrap">
     <div class="head-row">
       <div>
-        <span class="eyebrow">What customers say</span>
-        <h2>100% recommend <span>· 102 reviews</span></h2>
+        <span class="eyebrow" data-text="reviews.eyebrow"></span>
+        <h2><span data-text="reviews.headline" style="color:inherit"></span> <span id="review-count"></span></h2>
       </div>
-      <a href="#">Read them all on Facebook →</a><!-- TODO: David's Facebook page URL -->
+      <a id="fb-reviews" href="#">Read them all on Facebook →</a>
     </div>
-    <div class="grid">
-      <blockquote class="review">
-        <svg width="32" height="24" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11zm18 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11z" fill="#F5B800"/></svg>
-        <p>[Paste a real review from Facebook — e.g. a fencing job]</p>
-        <footer><strong>[Customer name]</strong> · Fencing</footer>
-      </blockquote>
-      <blockquote class="review">
-        <svg width="32" height="24" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11zm18 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11z" fill="#F5B800"/></svg>
-        <p>[Paste a real review from Facebook — e.g. a roofing job]</p>
-        <footer><strong>[Customer name]</strong> · Roofing</footer>
-      </blockquote>
-      <blockquote class="review">
-        <svg width="32" height="24" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11zm18 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11z" fill="#F5B800"/></svg>
-        <p>[Paste a real review from Facebook — e.g. a TV wall]</p>
-        <footer><strong>[Customer name]</strong> · TV feature wall</footer>
-      </blockquote>
-    </div>
+    <div class="grid" id="review-list"></div>
   </div>
 </section>
 
@@ -400,17 +300,9 @@ footer.site strong{color:var(--white)}
   <div class="wrap">
     <div class="areas-copy">
       <span class="eyebrow">Areas covered</span>
-      <h2>Based in Arborfield, working across Berkshire</h2>
-      <p>Not sure if you're in range? Send your postcode and I'll let you know.</p>
-      <ul class="chips">
-        <li>Arborfield</li>
-        <li>Wokingham</li>
-        <li>Finchampstead</li>
-        <li>Shinfield</li>
-        <li>Crowthorne</li>
-        <li>Reading</li>
-        <li>Bracknell</li>
-      </ul>
+      <h2 data-text="areas.heading"></h2>
+      <p data-text="areas.text"></p>
+      <ul class="chips" id="towns"></ul>
     </div>
   </div>
 </section>
@@ -418,25 +310,19 @@ footer.site strong{color:var(--white)}
 <section class="section quote" id="quote">
   <div class="wrap">
     <div class="quote-copy">
-      <h2>Get your free quote</h2>
-      <p>No obligation, no hard sell. Usually a reply the same day.</p>
-      <div class="contact-list">
-        <a href="tel:07453159073"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>07453 159073</a>
-        <a href="tel:07511719222"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>07511 719222</a>
-        <a href="https://wa.me/85291816360"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp a photo of the job</a>
-      </div>
+      <h2 data-text="quote.heading"></h2>
+      <p data-text="quote.text"></p>
+      <div class="contact-list" id="contact-list"></div>
     </div>
 
     <div class="form-card">
       <div class="thanks" id="thanks" role="status" hidden>
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1F2124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>
         <h3>Thanks — request sent</h3>
-        <p>David will be in touch shortly.</p>
+        <p>We'll be in touch shortly.</p>
       </div>
-
-      <!-- TEST: posts to the Hillsqr Formspree form. Give David his own form ID before go-live. -->
-      <form class="quote-form" id="quote-form" action="https://formspree.io/f/xljjnqez" method="POST">
-        <input type="hidden" name="_subject" value="[TEST] Handyman David – website quote request">
+      <form class="quote-form" id="quote-form" method="POST">
+        <input type="hidden" name="_subject" id="form-subject">
         <label class="hp" aria-hidden="true">Leave blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <label class="field">Name
           <input type="text" name="name" autocomplete="name" required>
@@ -448,13 +334,7 @@ footer.site strong{color:var(--white)}
           <input type="text" name="postcode" autocomplete="postal-code">
         </label>
         <label class="field">Type of job
-          <select name="job_type">
-            <option>Roofing</option>
-            <option>Fencing</option>
-            <option>TV mounting / feature wall</option>
-            <option>General repairs</option>
-            <option>Something else</option>
-          </select>
+          <select name="job_type" id="job-types"></select>
         </label>
         <label class="field full">What needs doing?
           <textarea name="message" rows="4"></textarea>
@@ -473,64 +353,171 @@ footer.site strong{color:var(--white)}
 
 <footer class="site">
   <div class="wrap">
-    <span><strong>David's Property</strong> · General Handyman Service by David · Arborfield, Berkshire · © <span id="year">2026</span></span>
-    <span><a href="#">Facebook</a><a href="#quote">Free quote</a><a href="privacy.html">Privacy</a></span>
+    <span><strong data-text="business.name"></strong> · <span data-text="business.subName"></span> · <span id="footer-place"></span> · © <span id="year"></span></span>
+    <span><a id="fb-footer" href="#">Facebook</a><a href="#quote">Free quote</a></span>
   </div>
 </footer>
 
 <nav class="callbar" aria-label="Quick contact">
-  <a href="tel:07453159073">Call David</a>
+  <a id="callbar-call" href="#">Call</a>
   <a href="#quote">Free quote</a>
 </nav>
 
+<script src="site-data.js"></script>
 <script>
 (function () {
-  // Before/after filter
-  var buttons = document.querySelectorAll('.filters button');
-  var jobs = document.querySelectorAll('.job');
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var f = btn.dataset.filter;
-      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-      jobs.forEach(function (j) { j.hidden = !(f === 'all' || j.dataset.cat === f); });
+  var S = window.SITE;
+  if (!S) return;
+  var B = S.business;
+
+  /* ---- helpers ---- */
+  function get(path) { return path.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, S); }
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k === 'html') n.innerHTML = attrs[k];            // only used for fixed icons below
+      else n.setAttribute(k, attrs[k]);
     });
+    (kids || []).forEach(function (c) { if (c) n.appendChild(c); });
+    return n;
+  }
+  function $(id) { return document.getElementById(id); }
+  function tel(num) { return 'tel:' + num.replace(/\s+/g, ''); }
+  function waLink(text) { return 'https://wa.me/' + B.whatsapp + (text ? '?text=' + encodeURIComponent(text) : ''); }
+  function photo(src, alt, cls) {
+    return src
+      ? el('div', { 'class': cls }, [el('img', { src: src, alt: alt || '', loading: 'lazy' })])
+      : el('div', { 'class': cls + ' ph-placeholder', text: 'Photo: ' + (alt || '') });
+  }
+  var ICON = {
+    roof:  'M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6',
+    fence: 'M4 21V7l2-3 2 3v14M16 21V7l2-3 2 3v14M4 11h16M4 17h16',
+    tv:    'M3 5h18v11H3zM8 20h8M12 16v4',
+    tools: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z',
+    check: 'M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
+    house: 'M3 21h18M5 21V9l7-5 7 5v12M9 21v-8h6v8'
+  };
+  var PHONE_SVG = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>';
+  var WA_SVG = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>';
+  var QUOTE_SVG = '<svg width="32" height="24" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6 4 1 12 0v5c-4 1-6 4-6 8h6v11zm18 0V14c0-8 4-13 12-14v5c-4 1-6 4-6 8h6v11z" fill="#F5B800"/></svg>';
+
+  /* ---- simple text ---- */
+  document.querySelectorAll('[data-text]').forEach(function (n) { n.textContent = get(n.dataset.text) || ''; });
+
+  /* ---- phones, WhatsApp, Facebook ---- */
+  var main = B.phones[0];
+  B.phones.forEach(function (p) { $('strip-phones').appendChild(el('a', { href: tel(p), text: p })); });
+  $('hero-call').href = tel(main); $('hero-call').textContent = 'Call ' + main;
+  $('callbar-call').href = tel(main); $('callbar-call').textContent = 'Call David';
+  document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waLink(); });
+  B.phones.forEach(function (p) {
+    var a = el('a', { href: tel(p), html: PHONE_SVG }); a.appendChild(document.createTextNode(p));
+    $('contact-list').appendChild(a);
+  });
+  var wa = el('a', { href: waLink(), html: WA_SVG }); wa.appendChild(document.createTextNode('WhatsApp a photo of the job'));
+  $('contact-list').appendChild(wa);
+  ['fb-reviews', 'fb-footer'].forEach(function (id) { if (B.facebook) $(id).href = B.facebook; else $(id).hidden = true; });
+  $('footer-place').textContent = B.town + ', ' + B.region;
+  $('year').textContent = new Date().getFullYear();
+
+  /* ---- hero ---- */
+  S.hero.stats.forEach(function (s) {
+    $('stats').appendChild(el('div', { 'class': 'stat' }, [el('b', { text: s.value }), el('span', { text: s.label })]));
+  });
+  S.hero.photos.slice(0, 3).forEach(function (p, i) {
+    $('hero-photos').appendChild(photo(p.src, p.alt, 'ph ph-dark' + (i === 0 ? ' big' : '')));
   });
 
-  var WA_NUMBER = '85291816360'; // TEST number - change to 447453159073 (David) before go-live
+  /* ---- services ---- */
+  S.services.items.forEach(function (s) {
+    var icon = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + (ICON[s.icon] || ICON.tools) + '"/></svg>';
+    $('services-list').appendChild(el('article', { 'class': 'card' }, [
+      el('span', { 'class': 'card-icon', html: icon }), el('h3', { text: s.title }), el('p', { text: s.text })
+    ]));
+  });
 
-  // Quote form → Formspree (AJAX; falls back to a normal POST if JS fails)
-  var form = document.getElementById('quote-form');
-  var msg = document.getElementById('form-msg');
-  var thanks = document.getElementById('thanks');
+  /* ---- jobs + filters ---- */
+  var jobs = S.jobs.items;
+  if (!jobs.length) $('work').hidden = true;
+  var cats = [];
+  jobs.forEach(function (j) {
+    if (j.category && cats.indexOf(j.category) < 0) cats.push(j.category);
+    var tagB = el('span', { 'class': 'tag', text: 'Before' }), tagA = el('span', { 'class': 'tag after', text: 'After' });
+    var b = photo(j.before, j.title + ' – before', 'ph ph-light'); b.prepend(tagB);
+    var a = photo(j.after, j.title + ' – after', 'ph ph-light'); a.prepend(tagA);
+    var fig = el('figure', { 'class': 'job', 'data-cat': j.category || '' }, [
+      el('div', { 'class': 'ba' }, [b, a]),
+      el('figcaption', {}, [el('strong', { text: j.title }), el('span', { text: j.town || '' })])
+    ]);
+    $('job-list').appendChild(fig);
+  });
+  if (cats.length > 1) {
+    ['All'].concat(cats).forEach(function (c, i) {
+      var btn = el('button', { type: 'button', 'aria-pressed': String(i === 0), text: c });
+      btn.addEventListener('click', function () {
+        $('job-filters').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === btn)); });
+        $('job-list').querySelectorAll('.job').forEach(function (f) { f.hidden = !(c === 'All' || f.dataset.cat === c); });
+      });
+      $('job-filters').appendChild(btn);
+    });
+  }
+
+  /* ---- steps ---- */
+  S.steps.forEach(function (s, i) {
+    $('steps').appendChild(el('li', {}, [
+      el('span', { 'class': 'num', text: String(i + 1).padStart(2, '0') }), el('h3', { text: s.title }), el('p', { text: s.text })
+    ]));
+  });
+
+  /* ---- reviews ---- */
+  $('review-count').textContent = S.reviews.count ? '· ' + S.reviews.count : '';
+  S.reviews.items.forEach(function (r) {
+    var q = el('blockquote', { 'class': 'review', html: QUOTE_SVG });
+    q.appendChild(el('p', { text: r.text }));
+    var f = el('footer', {}, [el('strong', { text: r.name })]);
+    if (r.job) f.appendChild(document.createTextNode(' · ' + r.job));
+    q.appendChild(f);
+    $('review-list').appendChild(q);
+  });
+
+  /* ---- areas ---- */
+  S.areas.towns.forEach(function (t) { $('towns').appendChild(el('li', { text: t })); });
+
+  /* ---- quote form ---- */
+  var form = $('quote-form'), msg = $('form-msg');
+  form.action = 'https://formspree.io/f/' + S.form.formspreeId;
+  $('form-subject').value = S.form.emailSubject;
+  S.form.jobTypes.forEach(function (t) { $('job-types').appendChild(el('option', { text: t })); });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     msg.textContent = 'Sending…';
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-      .then(function (r) {
-        if (!r.ok) throw new Error();
-        form.hidden = true;
-        thanks.hidden = false;
-      })
-      .catch(function () {
-        msg.textContent = 'Sorry, that didn’t send. Please call 07453 159073 or use WhatsApp.';
-      });
+      .then(function (r) { if (!r.ok) throw new Error(); form.hidden = true; $('thanks').hidden = false; })
+      .catch(function () { msg.textContent = 'Sorry, that didn’t send. Please call ' + main + ' or use WhatsApp.'; });
   });
-
-  // Same details via WhatsApp
-  document.getElementById('send-wa').addEventListener('click', function () {
+  $('send-wa').addEventListener('click', function () {
     var d = new FormData(form);
-    var text = 'Hi David, I’d like a free quote.\n' +
+    window.open(waLink(
+      'Hi, I’d like a free quote.\n' +
       'Name: ' + (d.get('name') || '') + '\n' +
       'Phone: ' + (d.get('phone') || '') + '\n' +
       'Postcode: ' + (d.get('postcode') || '') + '\n' +
       'Job: ' + (d.get('job_type') || '') + '\n' +
-      (d.get('message') || '');
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+      (d.get('message') || '')), '_blank', 'noopener');
   });
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  /* ---- Google business info (structured data) ---- */
+  var ld = el('script', { type: 'application/ld+json' });
+  ld.textContent = JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'RoofingContractor',
+    name: B.name + ' – ' + B.subName,
+    telephone: B.phones.map(function (p) { return '+44' + p.replace(/\s+/g, '').replace(/^0/, ''); }),
+    address: { '@type': 'PostalAddress', addressLocality: B.town, addressRegion: B.region, addressCountry: 'GB' },
+    areaServed: S.areas.towns, url: B.siteUrl, sameAs: B.facebook ? [B.facebook] : undefined
+  });
+  document.head.appendChild(ld);
 })();
 </script>
-
 </body>
 </html>
