@@ -418,13 +418,13 @@ footer.site strong{color:var(--white)}
       <!-- Edit this list to change the covered areas: each town appears as a chip AND a pin on the map.
            data-lat / data-lng = town centre. data-base = David's home base. -->
       <ul class="chips" id="towns">
-        <li><button type="button" data-lat="51.4050" data-lng="-0.9060" data-base>Arborfield</button></li>
-        <li><button type="button" data-lat="51.4110" data-lng="-0.8350">Wokingham</button></li>
-        <li><button type="button" data-lat="51.3580" data-lng="-0.8660">Finchampstead</button></li>
-        <li><button type="button" data-lat="51.4080" data-lng="-0.9480">Shinfield</button></li>
-        <li><button type="button" data-lat="51.3690" data-lng="-0.7920">Crowthorne</button></li>
-        <li><button type="button" data-lat="51.4540" data-lng="-0.9780">Reading</button></li>
-        <li><button type="button" data-lat="51.4160" data-lng="-0.7520">Bracknell</button></li>
+        <li><button type="button" data-lat="51.4050" data-lng="-0.9060" data-base data-dir="bottom">Arborfield</button></li>
+        <li><button type="button" data-lat="51.4110" data-lng="-0.8350" data-dir="right">Wokingham</button></li>
+        <li><button type="button" data-lat="51.3580" data-lng="-0.8660" data-dir="bottom">Finchampstead</button></li>
+        <li><button type="button" data-lat="51.4080" data-lng="-0.9480" data-dir="left">Shinfield</button></li>
+        <li><button type="button" data-lat="51.3690" data-lng="-0.7920" data-dir="right">Crowthorne</button></li>
+        <li><button type="button" data-lat="51.4540" data-lng="-0.9780" data-dir="top">Reading</button></li>
+        <li><button type="button" data-lat="51.4160" data-lng="-0.7520" data-dir="right">Bracknell</button></li>
       </ul>
     </div>
     <div class="map">
@@ -560,7 +560,7 @@ footer.site strong{color:var(--white)}
 
   var chips = Array.prototype.slice.call(document.querySelectorAll('#towns button'));
   var towns = chips.map(function (b) {
-    return { name: b.textContent.trim(), lat: +b.dataset.lat, lng: +b.dataset.lng, base: b.hasAttribute('data-base'), chip: b };
+    return { name: b.textContent.trim(), lat: +b.dataset.lat, lng: +b.dataset.lng, base: b.hasAttribute('data-base'), dir: b.dataset.dir || 'top', chip: b };
   });
   var base = towns.filter(function (t) { return t.base; })[0] || towns[0];
 
@@ -597,7 +597,8 @@ footer.site strong{color:var(--white)}
       radius: t.base ? 9 : 6, color: INK, weight: 2, fillColor: t.base ? ACCENT : '#FFFFFF', fillOpacity: 1
     }).addTo(map);
     m.bindTooltip(t.base ? t.name + ' (base)' : t.name, {
-      permanent: true, direction: 'top', offset: [0, -8], className: 'town-label' + (t.base ? ' base' : '')
+      permanent: true, direction: t.dir,
+      offset: t.dir === 'top' ? [0, -8] : t.dir === 'bottom' ? [0, 8] : t.dir === 'left' ? [-8, 0] : [8, 0], className: 'town-label' + (t.base ? ' base' : '')
     });
     return m;
   });
