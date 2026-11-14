@@ -177,10 +177,8 @@ form.quote-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1
 .form-actions .btn{flex:1 1 220px}
 .btn-submit{background:var(--ink);color:var(--white);font-size:17px}
 .btn-submit:hover{background:#000}
-.btn-wa-go{background:#1F7A45;color:var(--white);font-size:18px;min-height:56px;width:100%}
-.btn-wa-go:hover{background:#17623A;color:var(--white)}
-.wa-steps{grid-column:span 2;margin:0;padding-left:20px;font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
-.wa-steps strong{color:var(--ink)}
+.btn-wa{background:var(--white);color:var(--ink);border-color:var(--ink);font-size:17px}
+.hp{position:absolute;left:-9999px}
 .form-msg{grid-column:span 2;margin:0;font-size:14px;color:var(--muted)}
 .thanks{display:flex;flex-direction:column;gap:12px;padding:40px 0;text-align:center;align-items:center}
 .thanks h3{font-size:36px}
@@ -440,7 +438,7 @@ footer.site strong{color:var(--white)}
   <div class="wrap">
     <div class="quote-copy">
       <h2>Get your free quote</h2>
-      <p>Fill in a few details, send them on WhatsApp with a couple of photos, and David will reply with a price. No obligation, no hard sell.</p>
+      <p>No obligation, no hard sell. Usually a reply the same day.</p>
       <div class="contact-list">
         <a href="tel:07453159073"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>07453 159073</a>
         <a href="tel:07511719222"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>07511 719222</a>
@@ -449,15 +447,26 @@ footer.site strong{color:var(--white)}
     </div>
 
     <div class="form-card">
-      <!-- No server needed: submitting opens WhatsApp with the details pre-filled -->
-      <form class="quote-form" id="quote-form" novalidate>
+      <div class="thanks" id="thanks" role="status" hidden>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1F2124" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>
+        <h3>Thanks — request sent</h3>
+        <p>David will be in touch shortly.</p>
+      </div>
+
+      <!-- TEST: posts to the Hillsqr Formspree form. Give David his own form ID before go-live. -->
+      <form class="quote-form" id="quote-form" action="https://formspree.io/f/xljjnqez" method="POST">
+        <input type="hidden" name="_subject" value="[TEST] Handyman David – website quote request">
+        <label class="hp" aria-hidden="true">Leave blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <label class="field">Name
           <input type="text" name="name" autocomplete="name" required>
         </label>
-        <label class="field">Postcode
-          <input type="text" name="postcode" autocomplete="postal-code" placeholder="e.g. RG2 9">
+        <label class="field">Phone
+          <input type="tel" name="phone" autocomplete="tel" required>
         </label>
-        <label class="field full">Type of job
+        <label class="field">Postcode
+          <input type="text" name="postcode" autocomplete="postal-code">
+        </label>
+        <label class="field">Type of job
           <select name="job_type">
             <option>Roofing</option>
             <option>Fencing</option>
@@ -467,20 +476,13 @@ footer.site strong{color:var(--white)}
           </select>
         </label>
         <label class="field full">What needs doing?
-          <textarea name="message" rows="4" required placeholder="e.g. A few slipped tiles on the back of the roof, leaking into the loft"></textarea>
+          <textarea name="message" rows="4"></textarea>
         </label>
         <div class="form-actions">
-          <button type="submit" class="btn btn-wa-go">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
-            Send to David on WhatsApp
-          </button>
+          <button type="submit" class="btn btn-submit">Request my free quote</button>
+          <button type="button" class="btn btn-wa" id="send-wa">Send via WhatsApp instead</button>
         </div>
-        <ol class="wa-steps">
-          <li>WhatsApp opens with your details already typed.</li>
-          <li>Tap the <strong>paperclip / camera</strong> to add photos of the job.</li>
-          <li>Hit send — David will reply with a quote.</li>
-        </ol>
-        <p class="form-msg" id="form-msg" aria-live="polite">No WhatsApp? Call <a href="tel:07453159073">07453 159073</a> or <a href="tel:07511719222">07511 719222</a>.</p>
+        <p class="form-msg" id="form-msg" aria-live="polite"></p>
       </form>
     </div>
   </div>
@@ -513,26 +515,35 @@ footer.site strong{color:var(--white)}
     });
   });
 
-  // Quote form → opens WhatsApp chat with David, details pre-filled.
-  // The customer then attaches photos in WhatsApp (links can only pre-fill text).
   var WA_NUMBER = '85291816360'; // TEST number - change to 447453159073 (David) before go-live
+
+  // Quote form → Formspree (AJAX; falls back to a normal POST if JS fails)
   var form = document.getElementById('quote-form');
+  var msg = document.getElementById('form-msg');
+  var thanks = document.getElementById('thanks');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    msg.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error();
+        form.hidden = true;
+        thanks.hidden = false;
+      })
+      .catch(function () {
+        msg.textContent = 'Sorry, that didn’t send. Please call 07453 159073 or use WhatsApp.';
+      });
+  });
+
+  // Same details via WhatsApp
+  document.getElementById('send-wa').addEventListener('click', function () {
     var d = new FormData(form);
-    var name = (d.get('name') || '').trim();
-    var job = (d.get('message') || '').trim();
-    if (!name || !job) {
-      form.elements.namedItem(name ? 'message' : 'name').focus();
-      return;
-    }
-    var text =
-      'Hi David, I’d like a free quote (from your website).\n\n' +
-      '*Name:* ' + name + '\n' +
-      (d.get('postcode') ? '*Postcode:* ' + d.get('postcode').trim() + '\n' : '') +
-      '*Job type:* ' + d.get('job_type') + '\n' +
-      '*Details:* ' + job + '\n\n' +
-      'I’ll attach some photos below.';
+    var text = 'Hi David, I’d like a free quote.\n' +
+      'Name: ' + (d.get('name') || '') + '\n' +
+      'Phone: ' + (d.get('phone') || '') + '\n' +
+      'Postcode: ' + (d.get('postcode') || '') + '\n' +
+      'Job: ' + (d.get('job_type') || '') + '\n' +
+      (d.get('message') || '');
     window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
   });
 
