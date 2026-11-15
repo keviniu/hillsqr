@@ -39,3 +39,4 @@
 .talk-card span { color: var(--ink, #1d2733); font-size: .92rem; }
 /* Keep the chat button clear of the cookie banner */
 body:has(#cookie-banner) #hs-chat-btn { bottom: 120px; }
+.talk-slogan { margin: -4px 0 8px; color: var(--teal-dark, #0d7f7c); font-size: 1.25rem; font-weight: 700; letter-spacing: .01em; }
