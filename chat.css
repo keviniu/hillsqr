@@ -1,0 +1,37 @@
+#hs-chat-btn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 50;
+  background: var(--teal, #12a3a0); color: #fff; border: 0; border-radius: 999px;
+  padding: 12px 20px; font: 600 1rem/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 4px 14px rgba(13, 33, 66, .25); cursor: pointer;
+}
+#hs-chat-btn:hover { background: var(--teal-dark, #0d7f7c); }
+#hs-chat {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  width: min(360px, calc(100vw - 24px)); height: min(520px, calc(100vh - 40px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: #fff; border: 1px solid var(--line, #dde4ec); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(13, 33, 66, .25);
+  font: 0.95rem/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--ink, #1d2733);
+}
+#hs-chat[hidden] { display: none; }
+#hs-chat .hs-head { display: flex; align-items: center; justify-content: space-between; background: var(--navy, #14305a); color: #fff; padding: 12px 14px; }
+#hs-chat .hs-x { background: none; border: 0; color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 0 4px; }
+#hs-chat .hs-note { margin: 0; padding: 8px 14px; background: var(--bg-soft, #f3f6fa); color: var(--muted, #5b6776); font-size: .8rem; border-bottom: 1px solid var(--line, #dde4ec); }
+#hs-chat .hs-log { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+#hs-chat .hs-msg { max-width: 85%; padding: 8px 12px; border-radius: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+#hs-chat .hs-bot { align-self: flex-start; background: var(--bg-soft, #f3f6fa); }
+#hs-chat .hs-me { align-self: flex-end; background: var(--teal, #12a3a0); color: #fff; }
+#hs-chat .hs-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--line, #dde4ec); }
+#hs-chat .hs-form input { flex: 1; min-width: 0; padding: 10px; border: 1px solid var(--line, #dde4ec); border-radius: 8px; font: inherit; }
+#hs-chat .hs-send { background: var(--navy, #14305a); color: #fff; border: 0; border-radius: 8px; padding: 0 16px; font: inherit; font-weight: 600; cursor: pointer; }
+#hs-chat .hs-send:disabled { opacity: .5; cursor: default; }
+@media (max-width: 480px) { #hs-chat { right: 12px; bottom: 12px; } }
+
+/* Contact page: ways to reach us */
+.talk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.talk-card { display: block; padding: 18px; border: 1px solid var(--line, #dde4ec); border-radius: var(--radius, 10px); background: #fff; color: inherit; text-decoration: none; }
+.talk-card:hover { border-color: var(--teal, #12a3a0); }
+.talk-card strong { display: block; color: var(--navy, #14305a); margin-bottom: 4px; }
+.talk-card span { color: var(--muted, #5b6776); font-size: .92rem; }
+/* Keep the chat button clear of the cookie banner */
+body:has(#cookie-banner) #hs-chat-btn { bottom: 120px; }
