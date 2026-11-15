@@ -29,9 +29,13 @@
 
 /* Contact page: ways to reach us */
 .talk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
-.talk-card { display: block; padding: 18px; border: 1px solid var(--line, #dde4ec); border-left: 4px solid var(--teal, #12a3a0); border-radius: var(--radius, 10px); background: var(--bg-soft, #f3f6fa); color: inherit; text-decoration: none; }
-.talk-card:hover { background: #e6f4f4; border-color: var(--teal, #12a3a0); }
-.talk-card strong { display: block; color: var(--navy, #14305a); margin-bottom: 4px; }
-.talk-card span { color: var(--muted, #5b6776); font-size: .92rem; }
+.talk-card { --accent: #14305a; --tint: #e8eef7; display: block; padding: 20px 18px; border: 1px solid var(--accent); border-top: 5px solid var(--accent); border-radius: var(--radius, 10px); background: var(--tint); color: inherit; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.talk-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(13, 33, 66, .15); }
+.talk-call { --accent: #14305a; --tint: #e8eef7; }
+.talk-wa { --accent: #1b8a4b; --tint: #e5f5ec; }
+.talk-chat { --accent: #0d7f7c; --tint: #e0f3f2; }
+.talk-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 10px; border-radius: 50%; background: var(--accent); color: #fff; }
+.talk-card strong { display: block; color: var(--accent); font-size: 1.1rem; margin-bottom: 4px; }
+.talk-card span { color: var(--ink, #1d2733); font-size: .92rem; }
 /* Keep the chat button clear of the cookie banner */
 body:has(#cookie-banner) #hs-chat-btn { bottom: 120px; }
