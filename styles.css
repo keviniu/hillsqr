@@ -249,6 +249,9 @@ table.results tr:last-child td { border-bottom: none; }
 .faq-item summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 .faq-item[open] summary { color: var(--teal-dark); }
 .faq-item p { margin: 0 0 16px; color: var(--muted); }
+.faq-item ul { margin: 0 0 16px; padding-left: 20px; color: var(--muted); }
+.faq-item li { margin-bottom: 8px; }
+.faq-item li strong { color: var(--navy); }
 
 /* Home highlights */
 #highlights { background: #fff; }
