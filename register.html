@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI assistant register | Hill Square</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .reg { max-width: 760px; margin: 0 auto; padding: 28px 0 60px; }
+  .reg h1 { color: var(--navy); margin: 0 0 6px; }
+  .reg .lead { color: var(--muted); margin: 0 0 22px; }
+  .reg fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px 8px; margin: 0 0 20px; background: #fff; }
+  .reg legend { font-weight: 700; color: var(--navy); padding: 0 8px; }
+  .reg label { display: block; font-weight: 600; font-size: .92rem; margin: 0 0 14px; }
+  .reg label small { font-weight: 400; color: var(--muted); }
+  .reg input[type=text], .reg input[type=tel], .reg input[type=email], .reg input[type=url], .reg select, .reg textarea {
+    display: block; width: 100%; margin-top: 5px; padding: 9px 11px; font: inherit; font-weight: 400;
+    border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink);
+  }
+  .reg textarea { min-height: 70px; resize: vertical; }
+  .reg input:focus, .reg select:focus, .reg textarea:focus { outline: 2px solid var(--teal); border-color: var(--teal); }
+  .reg .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .reg .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
+  .reg .check { justify-content: flex-start; text-align: left; }
+  .reg .check input { margin: 5px 0 0; width: auto; flex: none; }
+  .reg .note { background: var(--bg-soft); border-radius: 8px; padding: 10px 12px; font-size: .9rem; color: var(--muted); margin: 0 0 14px; }
+  .reg .rows { display: grid; gap: 8px; margin-bottom: 10px; }
+  .reg .line { display: grid; gap: 8px; align-items: center; }
+  .reg .line.svc { grid-template-columns: 1.1fr 1.6fr .8fr auto; }
+  .reg .line.vip { grid-template-columns: 1fr 1fr 1fr 1fr auto; }
+  .reg .line input, .reg .line select { margin: 0; }
+  .reg .head { font-size: .8rem; color: var(--muted); font-weight: 600; }
+  .reg button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid var(--line); background: #fff; padding: 8px 14px; }
+  .reg button.x { padding: 6px 10px; color: var(--muted); }
+  .reg button.add { margin-bottom: 14px; }
+  .reg .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .reg .primary { background: var(--navy); color: #fff; border-color: var(--navy); font-weight: 600; padding: 11px 20px; }
+  .reg .primary:hover { background: var(--navy-dark); }
+  .reg .err { color: #b3261e; font-size: .9rem; margin: 8px 0 0; min-height: 1.2em; }
+  .reg .ok { color: var(--teal-dark); font-size: .9rem; margin: 8px 0 0; min-height: 1.2em; }
+  @media (max-width: 640px) {
+    .reg .row2 { grid-template-columns: 1fr; }
+    .reg .line.svc, .reg .line.vip { grid-template-columns: 1fr; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
+    .reg .head { display: none; }
+  }
+</style>
+</head>
+<body>
+<main class="container reg">
+  <h1>AI assistant register</h1>
+  <p class="lead">Tell us about your business so your assistant can answer calls and chats in your voice. It takes about five minutes. Nothing is sent until you press Send.</p>
+
+  <p class="err" id="gate" role="alert" hidden></p>
+  <p class="ok" id="done" hidden style="font-size:1.05rem"></p>
+  <form id="f" novalidate hidden>
+    <fieldset>
+      <legend>1. Your phone provider</legend>
+      <div class="note">The missed-call service needs your provider to forward unanswered calls to your assistant's number. Not every provider supports this (Smarty does, Lebara does not).</div>
+      <div class="row2">
+        <label>Provider <small>(for example Smarty, EE, Vodafone)</small>
+          <input type="text" id="provider" autocomplete="off">
+        </label>
+        <label>Type of number
+          <select id="numtype"><option value="">Choose</option><option>Mobile</option><option>Landline</option><option>VoIP</option></select>
+        </label>
+      </div>
+      <label>Does your provider support forwarding when you do not answer?
+        <select id="fwd"><option value="">Choose</option><option>Yes</option><option>No</option><option>Not sure</option></select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. About your business</legend>
+      <div class="row2">
+        <label>Business name *<input type="text" id="bname" required></label>
+        <label>Name of the owner *<input type="text" id="owner" required></label>
+        <label>Owner's mobile number *<input type="tel" id="mobile" required placeholder="+44 7..."></label>
+        <label>Owner's WhatsApp number <small>(if different)</small><input type="tel" id="wa" placeholder="+44 7..."></label>
+        <label>Email for summaries *<input type="email" id="email" required></label>
+        <label>Website<input type="url" id="site" placeholder="https://"></label>
+      </div>
+      <label>What your business does <small>(two sentences)</small><textarea id="about"></textarea></label>
+      <div class="row2">
+        <label>Opening hours <small>(and bank holidays)</small><textarea id="hours"></textarea></label>
+        <label>Address or area covered<textarea id="area"></textarea></label>
+      </div>
+      <label>How should the assistant introduce itself? <small>(for example "the assistant for Smith Plumbing")</small><input type="text" id="intro"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Services and prices</legend>
+      <div class="line svc head"><span>Service</span><span>Short description</span><span>Price or "from" price</span><span></span></div>
+      <div class="rows" id="svcRows"></div>
+      <button type="button" class="add" id="addSvc">+ Add a service</button>
+      <label>Services you do not offer <small>(so the assistant can say no)</small><textarea id="notoffer"></textarea></label>
+      <label>Common questions customers ask, with your answers<textarea id="faq"></textarea></label>
+      <label>Anything the assistant must never say or promise <small>(quotes, dates, refunds)</small><textarea id="never"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. VIP list</legend>
+      <div class="note">People the assistant should recognise by phone number: family, key customers, suppliers.</div>
+      <div class="line vip head"><span>Phone number</span><span>Name</span><span>Company</span><span>Note *</span><span style="width:34px"></span></div>
+      <div class="rows" id="vipRows"></div>
+      <datalist id="noteList"><option value="Family"><option value="Customer"><option value="Supplier"><option value="Friend"></datalist>
+      <p class="note">* Note: family, customer, supplier or friend. You can add anything else useful, for example "ring me any time".</p>
+      <button type="button" class="add" id="addVip">+ Add a person</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. How you want to be told</legend>
+      <label class="check"><input type="checkbox" id="n_email" checked> Email summary, with the full conversation</label>
+      <label class="check"><input type="checkbox" id="n_sms"> Text summary, summary only</label>
+      <label class="check"><input type="checkbox" id="n_wa"> WhatsApp summary, summary only</label>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit" class="primary">Send</button>
+    </div>
+    <p class="err" id="err" role="alert"></p>
+    <p class="ok" id="ok"></p>
+  </form>
+</main>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  function svcRow() {
+    var d = document.createElement("div");
+    d.className = "line svc";
+    d.innerHTML = '<input type="text" aria-label="Service" placeholder="Service">' +
+      '<input type="text" aria-label="Short description" placeholder="What it covers">' +
+      '<input type="text" aria-label="Price" placeholder="from £...">' +
+      '<button type="button" class="x" aria-label="Remove">&times;</button>';
+    d.querySelector(".x").onclick = function () { d.remove(); };
+    $("svcRows").appendChild(d);
+  }
+  function vipRow() {
+    var d = document.createElement("div");
+    d.className = "line vip";
+    d.innerHTML = '<input type="tel" aria-label="Phone number" placeholder="+44 7...">' +
+      '<input type="text" aria-label="Name" placeholder="Name">' +
+      '<input type="text" aria-label="Company" placeholder="Company">' +
+      '<input type="text" aria-label="Note" placeholder="Note *" list="noteList">' +
+      '<button type="button" class="x" aria-label="Remove">&times;</button>';
+    d.querySelector(".x").onclick = function () { d.remove(); };
+    $("vipRows").appendChild(d);
+  }
+  $("addSvc").onclick = svcRow;
+  $("addVip").onclick = vipRow;
+  for (var i = 0; i < 10; i++) { svcRow(); vipRow(); }
+
+  function rows(id) {
+    return Array.prototype.map.call($(id).children, function (r) {
+      return Array.prototype.map.call(r.querySelectorAll("input,select"), function (i) { return i.value.trim(); });
+    }).filter(function (c) { return c.some(Boolean); });
+  }
+  function v(id) { return $(id).value.trim() || "-"; }
+
+  var API = "https://app.hillsqr.com/api/register";
+  var token = new URLSearchParams(location.search).get("t") || "";
+
+  function data() {
+    return {
+      provider: $("provider").value, numtype: $("numtype").value, fwd: $("fwd").value,
+      bname: $("bname").value, owner: $("owner").value, mobile: $("mobile").value, wa: $("wa").value, email: $("email").value, site: $("site").value,
+      about: $("about").value, hours: $("hours").value, area: $("area").value, intro: $("intro").value,
+      services: rows("svcRows"), notoffer: $("notoffer").value, faq: $("faq").value, never: $("never").value,
+      vips: rows("vipRows"),
+      notify: { email: $("n_email").checked, sms: $("n_sms").checked, whatsapp: $("n_wa").checked }
+    };
+  }
+
+  function check() {
+    var missing = ["bname", "owner", "mobile", "email"].filter(function (id) { return !$(id).value.trim(); });
+    var bad = $("email").value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($("email").value.trim());
+    $("ok").textContent = "";
+    if (missing.length) { $("err").textContent = "Please fill in the business name, owner, mobile number and email (marked *)."; $(missing[0]).focus(); return false; }
+    if (bad) { $("err").textContent = "That email address does not look right."; $("email").focus(); return false; }
+    $("err").textContent = "";
+    return true;
+  }
+
+  function gate(msg) { $("f").hidden = true; $("gate").hidden = false; $("gate").textContent = msg; }
+
+  // The page works only from an invitation link: it checks the link before showing the form.
+  if (!token) {
+    gate("This form is by invitation. Please use the link Hill Square sent you, or email info@hillsqr.com.");
+  } else {
+    fetch(API + "/invite?t=" + encodeURIComponent(token)).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); }).then(function (x) {
+      if (!x.ok) return gate(x.d.error || "This link is not valid.");
+      $("f").hidden = false;
+      if (x.d.label) document.querySelector(".lead").textContent = "Prepared for " + x.d.label + ". " + document.querySelector(".lead").textContent;
+    }).catch(function () { gate("We could not reach the service. Please try again in a minute, or email info@hillsqr.com."); });
+  }
+
+  $("f").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!check()) return;
+    var btn = document.querySelector(".primary"); btn.disabled = true; $("ok").textContent = "Sending...";
+    fetch(API + "/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ t: token, data: data() }) })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (x) {
+        if (!x.ok) { btn.disabled = false; $("ok").textContent = ""; $("err").textContent = x.d.error || "Sorry, that did not send. Please try again."; return; }
+        $("f").hidden = true; $("done").hidden = false;
+        $("done").textContent = "Thank you. We have your details and will be in touch to set up your assistant.";
+        window.scrollTo(0, 0);
+      })
+      .catch(function () { btn.disabled = false; $("ok").textContent = ""; $("err").textContent = "Sorry, that did not send. Please try again, or email info@hillsqr.com."; });
+  });
+})();
+</script>
+</body>
+</html>
