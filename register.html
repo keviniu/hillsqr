@@ -165,7 +165,9 @@
   }
   function v(id) { return $(id).value.trim() || "-"; }
 
-  var API = "https://app.hillsqr.com/api/register";
+  // The test app (default) and the live app share this page: a link made on live carries s=live.
+  var SERVERS = { live: "https://live.hillsqr.com" };
+  var API = (SERVERS[new URLSearchParams(location.search).get("s")] || "https://app.hillsqr.com") + "/api/register";
   var token = new URLSearchParams(location.search).get("t") || "";
 
   function data() {
