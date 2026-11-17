@@ -116,6 +116,11 @@
       <label class="check"><input type="checkbox" id="n_wa"> WhatsApp summary, summary only</label>
     </fieldset>
 
+    <fieldset>
+      <legend>6. Agreement</legend>
+      <label class="check"><input type="checkbox" id="agree"> I have read the <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a> and the <a href="termsofservice.html" target="_blank" rel="noopener">terms of service</a> (including how call data is handled and deleted after 90 days). *</label>
+    </fieldset>
+
     <div class="actions">
       <button type="submit" class="primary">Send</button>
     </div>
@@ -180,6 +185,7 @@
     $("ok").textContent = "";
     if (missing.length) { $("err").textContent = "Please fill in the business name, owner, mobile number and email (marked *)."; $(missing[0]).focus(); return false; }
     if (bad) { $("err").textContent = "That email address does not look right."; $("email").focus(); return false; }
+    if (!$("agree").checked) { $("err").textContent = "Please tick the box to confirm you have read the privacy notice and the terms."; $("agree").focus(); return false; }
     $("err").textContent = "";
     return true;
   }
