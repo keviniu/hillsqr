@@ -113,7 +113,6 @@
       <legend>5. How you want to be told</legend>
       <label class="check"><input type="checkbox" id="n_email" checked> Email summary, with the full conversation</label>
       <label class="check"><input type="checkbox" id="n_sms"> Text summary, summary only</label>
-      <label class="check"><input type="checkbox" id="n_wa"> WhatsApp summary, summary only</label>
     </fieldset>
 
     <fieldset>
@@ -177,7 +176,7 @@
       about: $("about").value, hours: $("hours").value, area: $("area").value, intro: $("intro").value,
       services: rows("svcRows"), notoffer: $("notoffer").value, faq: $("faq").value, never: $("never").value,
       vips: rows("vipRows"),
-      notify: { email: $("n_email").checked, sms: $("n_sms").checked, whatsapp: $("n_wa").checked }
+      notify: { email: $("n_email").checked, sms: $("n_sms").checked, whatsapp: false }
     };
   }
 
