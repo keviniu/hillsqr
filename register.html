@@ -77,7 +77,6 @@
         <label>Business name *<input type="text" id="bname" required></label>
         <label>Name of the owner *<input type="text" id="owner" required></label>
         <label>Owner's mobile number *<input type="tel" id="mobile" required placeholder="+44 7..."></label>
-        <label>Owner's WhatsApp number <small>(if different)</small><input type="tel" id="wa" placeholder="+44 7..."></label>
         <label>Email for summaries *<input type="email" id="email" required></label>
         <label>Website<input type="url" id="site" placeholder="https://"></label>
       </div>
@@ -172,7 +171,7 @@
   function data() {
     return {
       provider: $("provider").value, numtype: $("numtype").value, fwd: $("fwd").value,
-      bname: $("bname").value, owner: $("owner").value, mobile: $("mobile").value, wa: $("wa").value, email: $("email").value, site: $("site").value,
+      bname: $("bname").value, owner: $("owner").value, mobile: $("mobile").value, wa: "", email: $("email").value, site: $("site").value,
       about: $("about").value, hours: $("hours").value, area: $("area").value, intro: $("intro").value,
       services: rows("svcRows"), notoffer: $("notoffer").value, faq: $("faq").value, never: $("never").value,
       vips: rows("vipRows"),
