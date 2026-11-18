@@ -122,7 +122,9 @@
 
     <div class="actions">
       <button type="submit" class="primary">Send</button>
+      <button type="button" id="saveDraft">Save and finish later</button>
     </div>
+    <p class="note" id="draftNote">Your answers are saved on this device as you type, and are not sent to us until you press Send. To carry on later, open the same link on the same device and browser.</p>
     <p class="err" id="err" role="alert"></p>
     <p class="ok" id="ok"></p>
   </form>
@@ -202,6 +204,52 @@
     return true;
   }
 
+  // Draft: answers are kept in this browser (not sent) so the form can be finished later. Cleared once the form is sent.
+  var DRAFT_KEY = "va-register-draft:" + token.slice(0, 20);
+  var drafting = false;
+  function readDraft() {
+    var s = {};
+    Array.prototype.forEach.call($("f").querySelectorAll("input[id],select[id],textarea[id]"), function (el) {
+      if (el.id === "agree" || el.closest("#svcRows,#vipRows")) return;
+      s[el.id] = el.type === "checkbox" ? el.checked : el.value;
+    });
+    s.__svc = rowValues("svcRows"); s.__vip = rowValues("vipRows");
+    return s;
+  }
+  function rowValues(id) {
+    return Array.prototype.map.call($(id).children, function (r) { return Array.prototype.map.call(r.querySelectorAll("input,select"), function (i) { return i.value; }); });
+  }
+  function saveDraft() {
+    if (!token || $("f").hidden) return false;
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(readDraft())); return true; } catch (e) { return false; }
+  }
+  function restoreDraft() {
+    var raw = null;
+    try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) {}
+    if (!raw) return false;
+    try {
+      var s = JSON.parse(raw);
+      Object.keys(s).forEach(function (k) {
+        if (k.indexOf("__") === 0 || !$(k)) return;
+        if ($(k).type === "checkbox") $(k).checked = !!s[k]; else $(k).value = s[k];
+      });
+      (s.__svc || []).forEach(function (vals) { svcRow(); fillRow($("svcRows").lastChild, vals); });
+      (s.__vip || []).slice(0, MAX_VIP).forEach(function (vals) { vipRow(); fillRow($("vipRows").lastChild, vals); });
+      return true;
+    } catch (e) { return false; }
+  }
+  function fillRow(row, vals) { Array.prototype.forEach.call(row.querySelectorAll("input,select"), function (i, n) { i.value = vals[n] == null ? "" : vals[n]; }); }
+  function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
+  var timer = null;
+  $("f").addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(saveDraft, 600); });
+  $("f").addEventListener("change", function () { clearTimeout(timer); timer = setTimeout(saveDraft, 300); });
+  $("saveDraft").onclick = function () {
+    var ok = saveDraft();
+    $("err").textContent = "";
+    $("ok").textContent = ok ? "Saved on this device. Open the same link to carry on." : "Could not save in this browser. Please finish the form now, or email info@hillsqr.com.";
+    refresh();
+  };
+
   function gate(msg) { $("f").hidden = true; $("gate").hidden = false; $("gate").textContent = msg; }
 
   // The page works only from an invitation link: it checks the link before showing the form.
@@ -211,6 +259,7 @@
     fetch(API + "/invite?t=" + encodeURIComponent(token)).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); }).then(function (x) {
       if (!x.ok) return gate(x.d.error || "This link is not valid.");
       $("f").hidden = false;
+      if (restoreDraft()) { refresh(); $("ok").textContent = "We restored the answers you saved earlier on this device."; }
       if (x.d.label) document.querySelector(".lead").textContent = "Prepared for " + x.d.label + ". " + document.querySelector(".lead").textContent;
     }).catch(function () { gate("We could not reach the service. Please try again in a minute, or email info@hillsqr.com."); });
   }
@@ -223,6 +272,7 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (x) {
         if (!x.ok) { btn.disabled = false; $("ok").textContent = ""; $("err").textContent = x.d.error || "Sorry, that did not send. Please try again."; return; }
+        clearDraft();
         $("f").hidden = true; $("done").hidden = false;
         $("done").textContent = "Thank you. We have your details and will be in touch to set up your assistant.";
         window.scrollTo(0, 0);
