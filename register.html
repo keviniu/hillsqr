@@ -138,8 +138,9 @@
       '<input type="text" aria-label="Short description" placeholder="What it covers">' +
       '<input type="text" aria-label="Price" placeholder="from £...">' +
       '<button type="button" class="x" aria-label="Remove">&times;</button>';
-    d.querySelector(".x").onclick = function () { d.remove(); };
+    d.querySelector(".x").onclick = function () { d.remove(); refresh(); };
     $("svcRows").appendChild(d);
+    refresh();
   }
   function vipRow() {
     var d = document.createElement("div");
@@ -149,12 +150,22 @@
       '<input type="text" aria-label="Company" placeholder="Company">' +
       '<input type="text" aria-label="Note" placeholder="Note *" list="noteList">' +
       '<button type="button" class="x" aria-label="Remove">&times;</button>';
-    d.querySelector(".x").onclick = function () { d.remove(); };
+    d.querySelector(".x").onclick = function () { d.remove(); refresh(); };
     $("vipRows").appendChild(d);
+    refresh();
+  }
+  // Start with no rows: the buttons add them. The column headings show only when there is a row; people are limited to 10.
+  var MAX_VIP = 10;
+  function refresh() {
+    var s = $("svcRows").children.length, v = $("vipRows").children.length;
+    document.querySelector(".line.svc.head").hidden = !s;
+    document.querySelector(".line.vip.head").hidden = !v;
+    $("addVip").disabled = v >= MAX_VIP;
+    $("addVip").textContent = v >= MAX_VIP ? "Maximum of 10 people reached" : "+ Add a person";
   }
   $("addSvc").onclick = svcRow;
-  $("addVip").onclick = vipRow;
-  for (var i = 0; i < 10; i++) { svcRow(); vipRow(); }
+  $("addVip").onclick = function () { if ($("vipRows").children.length < MAX_VIP) vipRow(); };
+  refresh();
 
   function rows(id) {
     return Array.prototype.map.call($(id).children, function (r) {
