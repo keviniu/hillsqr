@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rose Hair Studio | Hairdresser, welcoming new clients</title>
+<meta name="description" content="Rose Hair Studio: cuts, colour, blondes, balayage, perms and blow-dries from a self-employed hairdresser. New clients welcome. Your hair, your way.">
+<meta name="robots" content="noindex, nofollow"><!-- SAMPLE design preview made by Hill Square: do not index -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
+<style>
+  :root { --bg:#241a16; --bg2:#2f231e; --rose:#e8c2b4; --rose-d:#c98f7c; --cream:#f7ece6; --muted:#cdb7ad; --line:rgba(232,194,180,.28); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--cream); font:17px/1.65 "Jost",system-ui,sans-serif; }
+  h1,h2,h3 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; line-height:1.1; margin:0; }
+  a { color:var(--rose); }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  .banner { background:#14305a; color:#fff; font-size:.85rem; text-align:center; padding:6px 12px; }
+  .banner a { color:#fff; }
+  header.top { display:flex; justify-content:space-between; align-items:center; padding:18px 0; }
+  .brand { font-family:"Cormorant Garamond",serif; letter-spacing:.2em; text-transform:uppercase; font-size:1.05rem; color:var(--cream); text-decoration:none; }
+  nav a { margin-left:20px; text-decoration:none; font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+  nav a:hover { color:var(--rose); }
+  .hero { position:relative; text-align:center; padding:70px 0 64px; background:
+      radial-gradient(ellipse at 15% 30%, rgba(201,143,124,.35), transparent 55%),
+      radial-gradient(ellipse at 85% 80%, rgba(232,194,180,.18), transparent 50%), var(--bg2);
+      border-bottom:1px solid var(--line); }
+  .eyebrow { letter-spacing:.3em; text-transform:uppercase; font-size:.8rem; color:var(--rose); margin-bottom:14px; }
+  .hero h1 { font-size:clamp(2.6rem,8vw,4.6rem); }
+  .hero h1 em { display:block; color:var(--rose); font-style:italic; }
+  .hero p.lead { max-width:34em; margin:22px auto 28px; color:var(--muted); font-size:1.1rem; }
+  .btn { display:inline-block; padding:13px 26px; border-radius:999px; border:1px solid var(--rose); color:var(--rose); text-decoration:none; font-weight:500; letter-spacing:.06em; }
+  .btn.fill { background:var(--rose); color:#2a1d18; }
+  .btn:hover { background:var(--rose-d); border-color:var(--rose-d); color:#2a1d18; }
+  section { padding:60px 0; }
+  h2 { font-size:clamp(1.9rem,5vw,2.6rem); text-align:center; margin-bottom:10px; }
+  .kicker { text-align:center; color:var(--muted); max-width:36em; margin:0 auto 34px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .card { border:1px solid var(--line); border-radius:14px; padding:22px; background:rgba(255,255,255,.03); }
+  .card h3 { font-size:1.5rem; color:var(--rose); margin-bottom:6px; }
+  .card p { margin:0; color:var(--muted); font-size:.98rem; }
+  .three { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); text-align:center; }
+  .three div { padding:12px 20px; border-left:1px solid var(--line); }
+  .three div:first-child { border-left:0; }
+  .three b { display:block; font-family:"Cormorant Garamond",serif; font-size:1.5rem; font-weight:500; color:var(--rose); }
+  .three span { color:var(--muted); font-size:.92rem; }
+  .quote { background:linear-gradient(100deg,rgba(232,194,180,.9),rgba(232,194,180,.75)); color:#2a1d18; border-radius:6px; padding:26px 24px; text-align:center; font-family:"Cormorant Garamond",serif; font-size:1.5rem; line-height:1.35; }
+  .quote em { font-style:italic; }
+  .alt { background:var(--bg2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .contact { text-align:center; }
+  .contact .box { max-width:32em; margin:0 auto; border:1px solid var(--line); border-radius:16px; padding:28px 22px; }
+  .contact p { color:var(--muted); }
+  .ph { color:var(--rose-d); font-style:italic; }
+  footer { padding:30px 0 40px; text-align:center; color:var(--muted); font-size:.85rem; }
+  footer .tag { font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.3rem; color:var(--rose); margin-bottom:6px; }
+  @media (max-width:600px) { nav a { margin-left:12px; } .three div { border-left:0; border-top:1px solid var(--line); } .three div:first-child { border-top:0; } }
+</style>
+</head>
+<body>
+<div class="banner">Sample page prepared by <a href="https://hillsqr.com">Hill Square</a> for Rose Hair Studio. Details in <span style="opacity:.8">[brackets]</span> are placeholders.</div>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">Rose Hair Studio</a>
+    <nav><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Book</a></nav>
+  </header>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Now welcoming new clients</div>
+    <h1>Your hair,<em>your way.</em></h1>
+    <p class="lead">I'm welcoming new clients into my chair as I continue my exciting self-employed journey. Beautiful hair, a little bit of pampering and a confidence boost.</p>
+    <a class="btn fill" href="#contact">Book or enquire</a>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Whatever you're after</h2>
+    <p class="kicker">Whether it's a fresh cut, a complete new look or just a little refresh, I'm here to help you feel your absolute best.</p>
+    <div class="three" style="margin-bottom:30px">
+      <div><b>A fresh cut</b><span>Cuts and restyles</span></div>
+      <div><b>A complete new look</b><span>Colour transformations</span></div>
+      <div><b>Just a little refresh</b><span>Blow-dries and styling</span></div>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Cuts &amp; restyles</h3><p>A shape that suits you and is easy to live with.</p></div>
+      <div class="card"><h3>Colour</h3><p>Colouring and colour transformations, tailored to you.</p></div>
+      <div class="card"><h3>Blondes &amp; balayage</h3><p>Soft, natural-looking blondes and hand-painted balayage.</p></div>
+      <div class="card"><h3>Perms</h3><p>Lasting body and texture, done with care.</p></div>
+      <div class="card"><h3>Bouncy blow-dries</h3><p>Styling for the everyday or a special occasion.</p></div>
+    </div>
+    <p class="kicker" style="margin-top:22px"><span class="ph">[Prices and appointment lengths to be added by Rose]</span></p>
+  </div>
+</section>
+
+<section class="alt" id="about">
+  <div class="wrap">
+    <h2>Because everyone deserves to feel fabulous</h2>
+    <p class="kicker">Rose Hair Studio is a self-employed, one-to-one hairdressing business. Every client is treated as an individual, and the aim is that you leave feeling confident, beautiful and happy with your hair.</p>
+    <div class="quote">Beautiful hair, a little bit of pampering and a confidence boost, <em>because everyone deserves to feel fabulous!</em></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>I'd love to welcome you into my chair</h2>
+    <p class="kicker">Message me today to book your appointment or enquire.</p>
+    <div class="box">
+      <p><b>Phone / text:</b> <span class="ph">[Rose's number]</span></p>
+      <p><b>Where:</b> <span class="ph">[salon name and address]</span></p>
+      <p><b>Days &amp; hours:</b> <span class="ph">[opening days and times]</span></p>
+      <p><b>Instagram / Facebook:</b> <span class="ph">[links]</span></p>
+      <a class="btn fill" href="#contact">Message Rose</a>
+      <p style="font-size:.88rem;margin-top:16px">If Rose can't pick up, her assistant takes your name, number and what you're looking for, and Rose rings you back.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tag">I'd love to welcome you into my chair.</div>
+  <div>&copy; Rose Hair Studio &middot; Sample page by <a href="https://hillsqr.com">Hill Square</a></div>
+</footer>
+</body>
+</html>
