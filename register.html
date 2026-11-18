@@ -25,6 +25,7 @@
   .reg .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
   .reg .check { justify-content: flex-start; text-align: left; }
   .reg .check input { margin: 5px 0 0; width: auto; flex: none; }
+  .reg .check span { flex: 1; min-width: 0; text-align: left; line-height: 1.5; }
   .reg .note { background: var(--bg-soft); border-radius: 8px; padding: 10px 12px; font-size: .9rem; color: var(--muted); margin: 0 0 14px; }
   .reg .rows { display: grid; gap: 8px; margin-bottom: 10px; }
   .reg .line { display: grid; gap: 8px; align-items: center; }
@@ -116,7 +117,7 @@
 
     <fieldset>
       <legend>6. Agreement</legend>
-      <label class="check"><input type="checkbox" id="agree"> I have read the <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a> and the <a href="termsofservice.html" target="_blank" rel="noopener">terms of service</a> (including how call data is handled and deleted after 90 days). *</label>
+      <label class="check"><input type="checkbox" id="agree"><span>I have read the <a href="privacy.html" target="_blank" rel="noopener">privacy notice</a> and the <a href="termsofservice.html" target="_blank" rel="noopener">terms of service</a>, including how call data is handled and deleted after 90 days. *</span></label>
     </fieldset>
 
     <div class="actions">
