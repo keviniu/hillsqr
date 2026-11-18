@@ -260,6 +260,7 @@
       if (!x.ok) return gate(x.d.error || "This link is not valid.");
       $("f").hidden = false;
       if (restoreDraft()) { refresh(); $("ok").textContent = "We restored the answers you saved earlier on this device."; }
+      else if (x.d.prefill) Object.keys(x.d.prefill).forEach(function (k) { if ($(k) && !$(k).value) $(k).value = x.d.prefill[k]; }); // answers Hill Square filled in for you: change anything that is wrong
       if (x.d.label) document.querySelector(".lead").textContent = "Prepared for " + x.d.label + ". " + document.querySelector(".lead").textContent;
     }).catch(function () { gate("We could not reach the service. Please try again in a minute, or email info@hillsqr.com."); });
   }
