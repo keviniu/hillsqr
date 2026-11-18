@@ -48,6 +48,10 @@
   .three div:first-child { border-left:0; }
   .three b { display:block; font-family:"Cormorant Garamond",serif; font-size:1.5rem; font-weight:500; color:var(--rose); }
   .three span { color:var(--muted); font-size:.92rem; }
+  .gal { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+  .gal figure { margin:0; border-radius:12px; overflow:hidden; border:1px solid var(--line); aspect-ratio:3/4; background:#000; }
+  .gal img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+  .gal figure:hover img { transform:scale(1.04); }
   .quote { background:linear-gradient(100deg,rgba(232,194,180,.9),rgba(232,194,180,.75)); color:#2a1d18; border-radius:6px; padding:26px 24px; text-align:center; font-family:"Cormorant Garamond",serif; font-size:1.5rem; line-height:1.35; }
   .quote em { font-style:italic; }
   .alt { background:var(--bg2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -65,7 +69,7 @@
 <div class="wrap">
   <header class="top">
     <a class="brand" href="#">Rose Hair Studio</a>
-    <nav><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Book</a></nav>
+    <nav><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Book</a></nav>
   </header>
 </div>
 
@@ -96,6 +100,19 @@
       <div class="card"><h3>Bouncy blow-dries</h3><p>Styling for the everyday or a special occasion.</p></div>
     </div>
     <p class="kicker" style="margin-top:22px"><span class="ph">[Prices and appointment lengths to be added by Rose]</span></p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Recent work</h2>
+    <p class="kicker">A few of my recent clients' colours, cuts and styles.</p>
+    <div class="gal">
+      <figure><img src="work1.jpg" alt="Soft dark brunette layers with a glossy finish" loading="lazy"></figure>
+      <figure><img src="work2.jpg" alt="Rich dark brown curled blow-dry" loading="lazy"></figure>
+      <figure><img src="work3.jpg" alt="Copper auburn waves" loading="lazy"></figure>
+      <figure><img src="work4.jpg" alt="Red balayage with a layered cut" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
