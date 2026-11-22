@@ -1,0 +1,6 @@
+{
+  "name": "Static site",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [8080],
+  "postCreateCommand": "echo 'Preview with: npx serve -l 8080'"
+}
