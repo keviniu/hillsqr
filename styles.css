@@ -315,3 +315,14 @@ table.results tr:last-child td { border-bottom: none; }
 .quiz-consent input { width: auto !important; margin-top: 4px; }
 .quiz .btn:focus-visible, .quiz-link:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
 @media (max-width: 560px) { .quiz { padding: 20px; } .quiz-row .btn { flex: 1; } }
+
+/* Home: AI assistant check strip */
+.check-strip { background: linear-gradient(90deg, #0b6f6d, #0c7f7d 55%, #17678f); color: #fff; }
+.check-strip-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; padding-bottom: 16px; flex-wrap: wrap; }
+.check-strip p { margin: 0; font-size: 1.05rem; color: #fff; }
+.check-strip p span { opacity: .92; }
+.check-strip .btn { background: #fff; color: #0b4f55; border-color: #fff; white-space: nowrap; }
+.check-strip .btn:hover { background: #eafaf9; }
+.check-strip .btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.hl-link-2 { display: block; margin-top: 6px; font-size: .92rem; }
+@media (max-width: 640px) { .check-strip-in { flex-direction: column; align-items: stretch; text-align: left; } .check-strip .btn { text-align: center; } }
