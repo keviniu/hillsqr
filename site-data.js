@@ -10,7 +10,10 @@ window.HILLSQR_DATA = {
       comment: "Since Kevin Iu has helped develop the Bracknell Chess Club website over the last two years, our website has grown into a well-organised, dynamic and interactive space for keeping members informed and entertained. Our membership has increased by more than double over this period, which, in no small part, reflects the excellent work carried out by Kevin. We are delighted by everything that Kevin has done to help us grow our club."
     }
   ],
-  cases: [
+  // TEMPORARILY HIDDEN (27 Nov 2026): the Show case block is off while "cases" is empty.
+  // To show it again, rename "casesHidden" below back to "cases" and delete the empty "cases: []" line.
+  cases: [],
+  casesHidden: [
     {
       tag: "Google advertising",
       title: "Getting a roofing company's Local Services Ads working",
